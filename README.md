@@ -1,0 +1,1 @@
+Este software pretende facilitar a especificação de autômatos a partir de expressões regulares utilizando-se de uma DSL que permite o uso de operações não comuns em expressões regulares como Prefix, Suffix, Contains e até mesmo especificar o tamanho da palavra permitida
