@@ -1,0 +1,8 @@
+L1 = TamMin(3)
+L2 =  TamMax(5)
+L3 = Contains(ab)
+return And(L1,L2,L3)
+
+
+
+
