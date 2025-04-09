@@ -170,12 +170,12 @@ class RegExpListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RegExpParser#sufix.
-    def enterSufix(self, ctx:RegExpParser.SufixContext):
+    # Enter a parse tree produced by RegExpParser#suffix.
+    def enterSuffix(self, ctx:RegExpParser.SuffixContext):
         pass
 
-    # Exit a parse tree produced by RegExpParser#sufix.
-    def exitSufix(self, ctx:RegExpParser.SufixContext):
+    # Exit a parse tree produced by RegExpParser#suffix.
+    def exitSuffix(self, ctx:RegExpParser.SuffixContext):
         pass
 
 

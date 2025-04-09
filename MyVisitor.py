@@ -153,7 +153,7 @@ class MyVisitor(RegExpVisitor):
 
 
     # Visit a parse tree produced by RegExpParser#sufix.
-    def visitSufix(self, ctx:RegExpParser.SufixContext):
+    def visitSuffix(self, ctx:RegExpParser.SuffixContext):
         value = self.visit(ctx.exp())
         return ".*" + value
 

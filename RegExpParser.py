@@ -64,7 +64,7 @@ class RegExpParser ( Parser ):
     literalNames = [ "<INVALID>", "'='", "'return'", "'('", "')'", "'Any'", 
                      "'ZeroOrMore'", "'OneOrMore'", "'Maybe'", "'Or'", "','", 
                      "'And'", "'Concat'", "'Contains'", "'Tam'", "'TamMin'", 
-                     "'TamMax'", "'Prefix'", "'Sufix'" ]
+                     "'TamMax'", "'Prefix'", "'Suffix'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
@@ -515,6 +515,31 @@ class RegExpParser ( Parser ):
                 return visitor.visitChildren(self)
 
 
+    class SuffixContext(ExpContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a RegExpParser.ExpContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def exp(self):
+            return self.getTypedRuleContext(RegExpParser.ExpContext,0)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterSuffix" ):
+                listener.enterSuffix(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitSuffix" ):
+                listener.exitSuffix(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitSuffix" ):
+                return visitor.visitSuffix(self)
+            else:
+                return visitor.visitChildren(self)
+
+
     class AnyContext(ExpContext):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a RegExpParser.ExpContext
@@ -635,31 +660,6 @@ class RegExpParser ( Parser ):
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitAnd" ):
                 return visitor.visitAnd(self)
-            else:
-                return visitor.visitChildren(self)
-
-
-    class SufixContext(ExpContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a RegExpParser.ExpContext
-            super().__init__(parser)
-            self.copyFrom(ctx)
-
-        def exp(self):
-            return self.getTypedRuleContext(RegExpParser.ExpContext,0)
-
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterSufix" ):
-                listener.enterSufix(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitSufix" ):
-                listener.exitSufix(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitSufix" ):
-                return visitor.visitSufix(self)
             else:
                 return visitor.visitChildren(self)
 
@@ -963,7 +963,7 @@ class RegExpParser ( Parser ):
                 pass
 
             elif la_ == 16:
-                localctx = RegExpParser.SufixContext(self, localctx)
+                localctx = RegExpParser.SuffixContext(self, localctx)
                 self.enterOuterAlt(localctx, 16)
                 self.state = 108
                 self.match(RegExpParser.T__17)

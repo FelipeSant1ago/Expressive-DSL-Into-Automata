@@ -5,8 +5,9 @@ import sys
 
 
 def check_dfa_equivalence(dfa1,dfa2):
-    nfa3 = dfa1.union(dfa2)
-    return (nfa3 == dfa1) and (nfa3 == dfa2)
+    return dfa1.__eq__(dfa2)
+    # nfa3 = dfa1.union(dfa2)
+    # return (nfa3 == dfa1) and (nfa3 == dfa2)
 
 
 def regular_expression_into_dfa(reg_exp):

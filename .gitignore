@@ -5,3 +5,5 @@ env
 .antlr
 .vscode
 __pycache__
+
+*.txt

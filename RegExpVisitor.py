@@ -99,8 +99,8 @@ class RegExpVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by RegExpParser#sufix.
-    def visitSufix(self, ctx:RegExpParser.SufixContext):
+    # Visit a parse tree produced by RegExpParser#suffix.
+    def visitSuffix(self, ctx:RegExpParser.SuffixContext):
         return self.visitChildren(ctx)
 
 

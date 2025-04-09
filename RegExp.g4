@@ -1,20 +1,14 @@
 grammar RegExp;
 
 
-
 prog: stat* returnStat
 
 ;
 
-
-
 stat: VAR '=' exp NEWLINE
 ;
 
-
-
 returnStat: 'return' exp NEWLINE
-
 ;
 
 exp:  '('')'               # emptyString
@@ -32,7 +26,7 @@ exp:  '('')'               # emptyString
       | 'TamMin' '(' INT ')'   # tamMin
       | 'TamMax' '(' INT ')'   # tamMax
       | 'Prefix' '(' exp ')'   # prefix
-      | 'Sufix' '(' exp ')'   # sufix
+      | 'Suffix' '(' exp ')'   # suffix
       | VAR                    # varExp
 
 ;
@@ -46,3 +40,13 @@ VAR: [A-Z]+[0-9]+;
 CHAIN: [a-z0-9]+;
 NEWLINE:'\r'? '\n' ; 
 WS  :   [ \t]+ -> skip ;
+
+
+
+
+
+
+
+
+
+
